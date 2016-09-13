@@ -1,0 +1,7 @@
+out/
+.idea/
+*config.xml
+*.properties
+bin-debug/
+bin/
+*.iml
