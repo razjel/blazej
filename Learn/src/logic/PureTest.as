@@ -2,9 +2,12 @@ package logic
 {
 public class PureTest
 {
-	public function execute():void
+	public function execute(input:String = null):void
 	{
-		trace("hi");
+		
 	}
+
+	
+
 }
 }
