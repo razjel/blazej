@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+  Created by Szczepan Czaicki, s.czaicki@getprintbox.com
+  Date: 2016-09-17
+ 
+  Copyright (c) 2013, Printbox www.getprintbox.com
+  All rights reserved.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script><![CDATA[
+		[Bindable]
+		public var characterName:String;
+
+		protected var _currentHealth:Number = 100;
+		protected var _maxHealth:Number = 100;
+
+		public function updateHealth(currentHealth:Number, maxHealth:Number):void
+		{
+			_currentHealth = currentHealth;
+			_maxHealth = maxHealth;
+			invalidateDisplayList();
+		}
+
+		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+		{
+			super.updateDisplayList(unscaledWidth, unscaledHeight);
+			var healthPercentage:Number = _currentHealth / _maxHealth;
+			cBar.graphics.clear();
+			cBar.graphics.beginFill(0x22FF22);
+			cBar.graphics.drawRect(0, 0, unscaledWidth * healthPercentage, unscaledHeight);
+		}
+		]]></fx:Script>
+
+	<s:VGroup>
+		<s:Label id="cName" text="{characterName}" />
+		<s:Group id="cBar" width="100%" height="100%"/>
+	</s:VGroup>
+</s:Group>
