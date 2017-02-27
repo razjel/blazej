@@ -2,7 +2,8 @@ package examples
 {
 public class Basics
 {
-	public function execute(input:String):void
+	
+	public function Basics()
 	{
 		var bool:Boolean = false;
 		var numIn:int = 23;
@@ -55,7 +56,7 @@ public class Basics
 
 		while (false)
 		{
-			trace("while");
+		trace("while");
 		}
 
 		do
@@ -63,8 +64,8 @@ public class Basics
 			trace("do while");
 		}
 		while (false)
-		
-		
+
+
 	}
 }
 }

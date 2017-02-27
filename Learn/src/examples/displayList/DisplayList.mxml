@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+  Created by Szczepan Czaicki, s.czaicki@getprintbox.com
+  Date: 2017-02-11
+
+  Copyright (c) 2013, Printbox www.getprintbox.com
+  All rights reserved.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:displaylist="examples.displayList.*">
+	<fx:Script><![CDATA[
+		import mx.collections.ArrayCollection;
+
+
+		]]></fx:Script>
+	<s:VGroup>
+		<displaylist:ColoredGroup width="100" height="100" color="0xFF0000"/>
+		<displaylist:ColoredGroup width="100" height="100" color="0x00FF00"/>
+		<displaylist:ColoredGroup width="100" height="100" color="0x0000FF"/>
+		<s:Button label="testowy przycisk"/>
+		<s:TextArea id="cTextAreaInput"  />
+		<s:Label text="label"/>
+		<s:CheckBox label="check box"/>
+		<s:DropDownList dataProvider="{new ArrayCollection(['ala', 'kot'])}"/>
+		<s:List dataProvider="{new ArrayCollection([1,2,3,'marysia'])}"/>
+		<s:Image source="C:/Users/Błażej/Desktop/Programowanie i nauka/Przechwytywanie.png" width="200" height="200"/>
+	</s:VGroup>
+</s:Group>
+

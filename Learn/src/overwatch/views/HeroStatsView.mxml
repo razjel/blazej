@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  Created by Błażej on 11.02.2017.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+	<s:VGroup>
+		<s:Image source="{Model.hero1.imageUrl}"/>
+		<s:TextInput text="{Model.hero1.healthPoint}"/>
+		<s:CheckBox label="armored" selected="{Model.hero1.type.indexOf(UnitType.ARMORED)!=-1}" change="changeType()"/>
+		<s:Label id="cLabel" text="{Model.hero1.upgradeLevel}"/>
+		<s:Button label="AttackUpgrade" click="upgradeAttack()"/>
+	</s:VGroup>
+
+
+	<fx:Script><![CDATA[
+		import model.Model;
+		import model.UnitType;
+		public function changeType(){
+			var i: Number = Model.hero1.type.indexOf(UnitType.ARMORED)
+			if (i!=-1)
+				Model.hero1.type.splice(i, 1)
+			else{
+				Model.hero1.type.push(UnitType.ARMORED)
+			}
+			trace(Model.hero1.type);
+		}
+			public function upgradeAttack(){
+			Model.hero1.upgradeLevel+=1;
+			cLabel.text = Model.hero1.upgradeLevel + "";
+		}
+		]]></fx:Script>
+</s:Group>
