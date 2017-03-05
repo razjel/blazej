@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+  Created by Błażej on 27.02.2017.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:views="overwatch.views.*"
+		 initialize="onInit()">
+
+	<fx:Script><![CDATA[
+		import model.Model;
+
+		public function onInit():void
+		{
+			cHeroStatsView.hero = Model.hero1;
+			if (cHeroStatsView.hero.race=="Protoss")
+			{
+				cHeroStatsView.ThirdUpgrade.source =
+					"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldZero.png"
+				if (cHeroStatsView.hero.space=="Ground")
+				{
+					cHeroStatsView.FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageZero.png"
+					cHeroStatsView.SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorZero.png"
+				}
+				else
+				{
+					cHeroStatsView.FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirZero.png"
+					cHeroStatsView.SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirZero.png"
+				}
+			}
+			else if (cHeroStatsView.hero.race=="Zerg")
+			{
+				if (cHeroStatsView.hero.space=="Ground")
+				{
+					cHeroStatsView.SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorZero.png"
+					if (cHeroStatsView.hero.range==0)
+					{
+						cHeroStatsView.FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageZero.png"
+					}
+					else
+					{
+						cHeroStatsView.FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageZero.png"
+					}
+				}
+			}
+			else
+			{
+				if (cHeroStatsView.hero.space=="Infantry")
+				{
+					cHeroStatsView.FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageZero.png"
+					cHeroStatsView.SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
+				}
+				else
+				{
+					cHeroStatsView.SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AVArmorZero.png"
+					if (cHeroStatsView.hero.space=="Vechicle")
+					{
+						cHeroStatsView.FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageZero.png"
+					}
+					else
+					{
+						cHeroStatsView.FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageZero.png"
+					}
+				}
+			}
+		}
+		]]></fx:Script>
+
+
+	<views:HeroStatsView id="cHeroStatsView" width="100%" height="100%" />
+</s:Group>

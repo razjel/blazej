@@ -67,9 +67,9 @@ public class Actions
 						else break
 					else
 					{
-						defendingHero.shield = defendingHero.shield + defendingHero.armorShield + defendingHero.shieldUpgradeConverter*defendingHero.upgradeLevel - 
-						attackingHero.damage - attackingHero.typeDamage - attackingHero.damageMeleeUpgradeConverter*attackingHero.upgradeLevel -
-						attackingHero.damageUpgradeConverter*attackingHero.upgradeLevel - attackingHero.damageTypeUpgradeConverter*attackingHero.upgradeLevel;
+						defendingHero.shield = defendingHero.shield + defendingHero.armorShield + defendingHero.shieldUpgradeConverter*defendingHero.shieldUpgradeLevel -
+						attackingHero.damage - attackingHero.typeDamage - attackingHero.damageMeleeUpgradeConverter*attackingHero.damageMeleeUpgradeLevel -
+						attackingHero.damageUpgradeConverter*attackingHero.damageUpgradeLevel - attackingHero.damageTypeUpgradeConverter*attackingHero.damageUpgradeLevel;
 						if (defendingHero.shield < 0)
 						{
 							var bonusDamage:int = defendingHero.shield;
@@ -93,8 +93,8 @@ public class Actions
 					else
 					{
 						defendingHero.healthPoint = Math.max(0, defendingHero.healthPoint + defendingHero.armor - attackingHero.damage - attackingHero.typeDamage +
-						defendingHero.armorUpgradeConverter*defendingHero.upgradeLevel - attackingHero.damageMeleeUpgradeConverter*attackingHero.upgradeLevel -
-						attackingHero.damageUpgradeConverter*attackingHero.upgradeLevel - attackingHero.damageTypeUpgradeConverter*attackingHero.upgradeLevel);
+						defendingHero.armorUpgradeConverter*defendingHero.armorUpgradeLevel - attackingHero.damageMeleeUpgradeConverter*attackingHero.damageMeleeUpgradeLevel -
+						attackingHero.damageUpgradeConverter*attackingHero.damageUpgradeLevel - attackingHero.damageTypeUpgradeConverter*attackingHero.damageUpgradeLevel);
 
 					}
 				}

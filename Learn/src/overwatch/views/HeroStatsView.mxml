@@ -2,31 +2,595 @@
 <!--
   Created by Błażej on 11.02.2017.
 -->
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		 >
+
 	<s:VGroup>
-		<s:Image source="{Model.hero1.imageUrl}"/>
-		<s:TextInput text="{Model.hero1.healthPoint}"/>
-		<s:CheckBox label="armored" selected="{Model.hero1.type.indexOf(UnitType.ARMORED)!=-1}" change="changeType()"/>
-		<s:Label id="cLabel" text="{Model.hero1.upgradeLevel}"/>
-		<s:Button label="AttackUpgrade" click="upgradeAttack()"/>
+		<s:Image source="{hero.imageUrl}"/>
+		<s:HGroup>
+			<s:Image id="FirstUpgrade"  click="firstUpgrade()"/>
+			<s:Image id="SecondUpgrade"  click="secondUpgrade()"/>
+			<s:Image id="ThirdUpgrade"  click="thirdUpgrade()"/>
+		</s:HGroup>
+		<s:Button id="NextSceneButton" label="Fight"/>
 	</s:VGroup>
 
 
 	<fx:Script><![CDATA[
-		import model.Model;
-		import model.UnitType;
-		public function changeType(){
-			var i: Number = Model.hero1.type.indexOf(UnitType.ARMORED)
-			if (i!=-1)
-				Model.hero1.type.splice(i, 1)
-			else{
-				Model.hero1.type.push(UnitType.ARMORED)
+		[Bindable]
+		public var hero:HeroStats;
+
+		public function firstUpgrade()
+		{
+			if (hero.race == "Protoss")
+			{
+				if (hero.space == "Ground")
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageThree.png"
+					}
+				}
+				else
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirThree.png"
+					}
+				}
 			}
-			trace(Model.hero1.type);
+			else if (hero.race == "Zerg")
+			{
+				if (hero.space == "Ground")
+				{
+					if (hero.range == 0)
+					{
+						if (hero.damageMeleeUpgradeLevel == 3)
+						{
+							hero.damageMeleeUpgradeLevel = 0;
+						}
+						else
+						{
+							hero.damageMeleeUpgradeLevel += 1;
+						}
+						trace(hero.damageMeleeUpgradeLevel);
+
+						if (hero.damageMeleeUpgradeLevel == 0)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageZero.png"
+						}
+
+						if (hero.damageMeleeUpgradeLevel == 1)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageOne.png"
+						}
+
+						if (hero.damageMeleeUpgradeLevel == 2)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageTwo.png"
+						}
+
+						if (hero.damageMeleeUpgradeLevel == 3)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageThree.png"
+						}
+					}
+					else
+					{
+						if (hero.damageUpgradeLevel == 3)
+						{
+							hero.damageUpgradeLevel = 0;
+						}
+						else
+						{
+							hero.damageUpgradeLevel += 1;
+						}
+						trace(hero.damageUpgradeLevel);
+
+						if (hero.damageUpgradeLevel == 0)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageZero.png"
+						}
+
+						if (hero.damageUpgradeLevel == 1)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageOne.png"
+						}
+
+						if (hero.damageUpgradeLevel == 2)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageTwo.png"
+						}
+
+						if (hero.damageUpgradeLevel == 3)
+						{
+							FirstUpgrade.source =
+								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageThree.png"
+						}
+					}
+				}
+				else
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageThree.png"
+					}
+				}
+			}
+			else
+			{
+				if (hero.space=="Infantry")
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageThree.png"
+					}
+				}
+				else if (hero.space == "Vechicle")
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageThree.png"
+					}
+				}
+				else
+				{
+					if (hero.damageUpgradeLevel == 3)
+					{
+						hero.damageUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.damageUpgradeLevel += 1;
+					}
+					trace(hero.damageUpgradeLevel);
+
+					if (hero.damageUpgradeLevel == 0)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageZero.png"
+					}
+
+					if (hero.damageUpgradeLevel == 1)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageOne.png"
+					}
+
+					if (hero.damageUpgradeLevel == 2)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageTwo.png"
+					}
+
+					if (hero.damageUpgradeLevel == 3)
+					{
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageThree.png"
+					}
+				}
+			}
 		}
-			public function upgradeAttack(){
-			Model.hero1.upgradeLevel+=1;
-			cLabel.text = Model.hero1.upgradeLevel + "";
+
+		public function secondUpgrade()
+		{
+			if (hero.race == "Protoss")
+			{
+				if (hero.space == "Ground")
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorThree.png"
+					}
+				}
+				else
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirThree.png"
+					}
+				}
+			}
+			else if (hero.race == "Zerg")
+			{
+				if (hero.space == "Ground")
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorThree.png"
+					}
+				}
+				else
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorThree.png"
+					}
+				}
+			}
+			else
+			{
+				if (hero.space == "Infantry")
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorThree.png"
+					}
+				}
+				else
+				{
+					if (hero.armorUpgradeLevel == 3)
+					{
+						hero.armorUpgradeLevel = 0;
+					}
+					else
+					{
+						hero.armorUpgradeLevel += 1;
+					}
+					trace(hero.armorUpgradeLevel);
+
+					if (hero.armorUpgradeLevel == 0)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
+					}
+
+					if (hero.armorUpgradeLevel == 1)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorOne.png"
+					}
+
+					if (hero.armorUpgradeLevel == 2)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorTwo.png"
+					}
+
+					if (hero.armorUpgradeLevel == 3)
+					{
+						SecondUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorThree.png"
+					}
+				}
+			}
+		}
+
+		public function thirdUpgrade()
+		{
+			if (hero.race == "Protoss")
+			{
+				if (hero.shieldUpgradeLevel == 3)
+				{
+					hero.shieldUpgradeLevel = 0;
+				}
+				else
+				{
+					hero.shieldUpgradeLevel += 1;
+				}
+				trace(hero.shieldUpgradeLevel);
+
+				if (hero.shieldUpgradeLevel == 0)
+				{
+					ThirdUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldZero.png"
+				}
+
+				if (hero.shieldUpgradeLevel == 1)
+				{
+					ThirdUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldOne.png"
+				}
+
+				if (hero.shieldUpgradeLevel == 2)
+				{
+					ThirdUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldTwo.png"
+				}
+
+				if (hero.shieldUpgradeLevel == 3)
+				{
+					ThirdUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldThree.png"
+				}
+			}
 		}
 		]]></fx:Script>
 </s:Group>

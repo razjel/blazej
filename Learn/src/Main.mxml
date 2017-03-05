@@ -24,12 +24,13 @@
 
 		protected function _executePureTest():void
 		{
-			var test:TimeoutExample = new TimeoutExample();
-			test.execute();
+//			var test:TimeoutExample = new TimeoutExample();
+//			test.execute();
 		}
 		]]></fx:Script>
 
-	<views:BattleGround width="100%" height="100%"/>
+	<views:UpgradeView width="100%" height="100%"/>
+	<!--<views:BattleGround width="100%" height="100%"/>-->
 	<!--<displaylist:DisplayList width="100%" height="100%" />-->
 	<!--<displaylist:DisplayListManipulation width="100%" height="100%" />-->
 

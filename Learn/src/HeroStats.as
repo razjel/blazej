@@ -16,7 +16,7 @@ public class HeroStats
 	public var armorShield:Number;
 	public var race:String;
 	public var type:Array;
-	public var space:Array;
+	public var space:String;
 	public var damage:Number;
 	public var typeDamage:Number;
 	public var bonusDamage:Dictionary;
@@ -25,7 +25,10 @@ public class HeroStats
 	public var previousAttackTime:Number;
 	public var range:Number;
 	public var movementSpeed:Number;
-	public var upgradeLevel:Number;
+	public var damageUpgradeLevel:Number;
+	public var armorUpgradeLevel:Number;
+	public var damageMeleeUpgradeLevel:Number;
+	public var shieldUpgradeLevel:Number;
 	public var damageUpgradeConverter:Number;
 	public var armorUpgradeConverter:Number;
 	public var shieldUpgradeConverter:Number;

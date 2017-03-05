@@ -21,7 +21,7 @@ public class InitDataAction
 		stalker.armorShield = 0;
 		stalker.race = 'Protoss';
 		stalker.type = [UnitType.ARMORED, UnitType.MECHANIC];
-		stalker.space = [UnitType.GROUND];
+		stalker.space = "Ground";
 		stalker.damage = 10;
 		stalker.bonusDamage = new Dictionary();
 		stalker.bonusDamage[UnitType.ARMORED] = 4;
@@ -29,7 +29,10 @@ public class InitDataAction
 		stalker.bonusDamage[UnitType.LIGHT] = 0;
 		stalker.bonusDamage[UnitType.MASSIVE] = 0;
 		stalker.bonusDamage[UnitType.MECHANIC] = 0;
-		stalker.upgradeLevel = 2;
+		stalker.damageUpgradeLevel = 0;
+		stalker.armorUpgradeLevel = 0;
+		stalker.damageMeleeUpgradeLevel = 0;
+		stalker.shieldUpgradeLevel = 0;
 		stalker.damageUpgradeConverter = 1;
 		stalker.damageMeleeUpgradeConverter = 0;
 		stalker.damageTypeUpgradeConverter = 0;
@@ -52,7 +55,7 @@ public class InitDataAction
 		roach.armorShield = 0;
 		roach.race = 'Zerg';
 		roach.type = [UnitType.ARMORED, UnitType.BIOLOGICAL];
-		roach.space = [UnitType.GROUND];
+		roach.space = "Ground";
 		roach.damage = 16;
 		roach.bonusDamage = new Dictionary();
 		roach.bonusDamage[UnitType.ARMORED] = 0;
@@ -60,7 +63,10 @@ public class InitDataAction
 		roach.bonusDamage[UnitType.LIGHT] = 0;
 		roach.bonusDamage[UnitType.MASSIVE] = 0;
 		roach.bonusDamage[UnitType.MECHANIC] = 0;
-		roach.upgradeLevel = 1;
+		roach.damageUpgradeLevel = 0;
+		roach.armorUpgradeLevel = 0;
+		roach.damageMeleeUpgradeLevel = 0;
+		roach.shieldUpgradeLevel = 0;
 		roach.damageUpgradeConverter = 1;
 		roach.damageMeleeUpgradeConverter = 0;
 		roach.damageTypeUpgradeConverter = 0;
@@ -82,10 +88,14 @@ public class InitDataAction
 		marauder.armorShield = 0;
 		marauder.race = 'Terran';
 		marauder.type = [UnitType.ARMORED, UnitType.BIOLOGICAL];
-		marauder.space = [UnitType.GROUND];
+		marauder.space = "Infantry";
 		marauder.damage = 5;
 		marauder.bonusDamage = new Dictionary();
 		marauder.bonusDamage[UnitType.ARMORED] = 5;
+		marauder.damageUpgradeLevel = 0;
+		marauder.armorUpgradeLevel = 0;
+		marauder.damageMeleeUpgradeLevel = 0;
+		marauder.shieldUpgradeLevel = 0;
 		marauder.damageUpgradeConverter = 1;
 		marauder.damageTypeUpgradeConverter = 1;
 		marauder.damageMeleeUpgradeConverter = 0;
