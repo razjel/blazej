@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+  Created by Szczepan Czaicki, s.czaicki@getprintbox.com
+  Date: 2016-09-17
+ 
+  Copyright (c) 2013, Printbox www.getprintbox.com
+  All rights reserved.
+-->
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		  xmlns:views="overwatch.views.*" initialize="onInit()" preinitialize="onPreinit()" enterFrame="Actions.mainLoop()">
+
+	<fx:Script><![CDATA[
+		import logic.Actions;
+		import logic.InitDataAction;
+
+		import model.Model;
+
+		import model.Model;
+
+		private function onPreinit():void
+		{
+			Model.view = this;
+		}
+
+		protected function onInit():void
+		{
+			cHealthBar1.hero = Model.hero1;
+			cHealthBar2.hero = Model.hero2;
+			cCharacter1.imageUrl = "C:/Users/Błażej/Desktop/Programowanie i nauka/Stalker.png";
+			cCharacter2.imageUrl = "C:/Users/Błażej/Desktop/Programowanie i nauka/Roach.png";
+		}
+
+		public function update():void
+		{
+			cHealthBar1.invalidateDisplayList()
+			cHealthBar2.invalidateDisplayList()
+		}
+		]]></fx:Script>
+
+	<s:HGroup width="100%" height="100%" gap="10">
+		<s:VGroup width="50%" height="100%" gap="10">
+			<views:HealthBar id="cHealthBar1" width="100%" />
+			<s:Group width="100%" height="100%">
+				<views:CharacterView id="cCharacter1" horizontalCenter="0" verticalCenter="0"/>
+			</s:Group>
+		</s:VGroup>
+		<s:VGroup width="50%" height="100%" gap="10">
+			<views:HealthBar id="cHealthBar2" width="100%"/>
+			<s:Group width="100%" height="100%">
+				<views:CharacterView id="cCharacter2" horizontalCenter="0" verticalCenter="0" mirror="true"/>
+			</s:Group>
+		</s:VGroup>
+	</s:HGroup>
+	<s:Button label="Start" click="{Actions.startBattle()}"></s:Button>
+</s:VGroup>

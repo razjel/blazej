@@ -5,3 +5,5 @@ out/
 bin-debug/
 bin/
 *.iml
+.dropbox
+desktop.ini

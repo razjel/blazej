@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+  Created by Błażej on 15.09.2016.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+	<fx:Script><![CDATA[
+		[Bindable]
+		public var myName:String;
+
+		protected function _showName():void
+		{
+			cLabel.text = myName;
+		}
+
+		protected function _saveCreature():void
+		{
+			var creature:Creature = new Creature();
+			creature.dmg = parseFloat(cTextAreaDmg.text);
+			creature.hp = parseFloat(cTextAreaHp.text);
+			creature.speed = parseFloat(cTextAreaSpeed.text);
+			trace("created");
+		}
+		]]></fx:Script>
+
+
+	<s:VGroup>
+		<s:Label id="cLabel" text="{myName}"/>
+		<s:TextArea id="cTextAreaDmg" width="300" height="30"/>
+		<s:TextArea id="cTextAreaHp" width="300" height="30"/>
+		<s:TextArea id="cTextAreaSpeed" width="300" height="30"/>
+		<s:Button label="save" click="_saveCreature()"/>
+		<s:Button label="show name" click="_showName()"/>
+	</s:VGroup>
+</s:Group>

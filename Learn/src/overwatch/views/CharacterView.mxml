@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+  Created by Szczepan Czaicki, s.czaicki@getprintbox.com
+  Date: 2016-09-17
+ 
+  Copyright (c) 2013, Printbox www.getprintbox.com
+  All rights reserved.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		 scaleX="{mirror ? -1 : 1}">
+	<fx:Script><![CDATA[
+		import model.Model;
+
+		[Bindable]
+		public var mirror:Boolean = false;
+
+		[Bindable]
+		public var imageUrl:String;
+
+		]]></fx:Script>
+
+	<s:Image id="cImage" source="{imageUrl}" width="100%" height="100%"/>
+
+
+	<!--<s:Image id="cOneProtossUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageOne.png"/>-->
+	<!--<s:Image id="cTwoProtossUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageTwo"/>-->
+	<!--<s:Image id="cThreeProtossUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageThree"/>-->
+	<!--<s:Image id="cOneProtossUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorOne"/>-->
+	<!--<s:Image id="cTwoProtossUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorTwo"/>-->
+	<!--<s:Image id="cThreeProtossUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorThree"/>-->
+	<!--<s:Image id="cOneProtossUpgradeShieldImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldOne"/>-->
+	<!--<s:Image id="cTwoProtossUpgradeShieldImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldTwo"/>-->
+	<!--<s:Image id="cThreeProtossUpgradeShieldImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldThree"/>-->
+	<!--<s:Image id="cOneProtossAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirOne"/>-->
+	<!--<s:Image id="cTwoProtossAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirTwo"/>-->
+	<!--<s:Image id="cThreeProtossAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirThree"/>-->
+	<!--<s:Image id="cOneProtossAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirOne"/>-->
+	<!--<s:Image id="cTwoProtossAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirTwo"/>-->
+	<!--<s:Image id="cThreeProtossAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirThree"/>-->
+
+	<!--<s:Image id="cOneZergUpgradeDamageMeeleImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageOne"/>-->
+	<!--<s:Image id="cTwoZergUpgradeDamageMeeleImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageTwo"/>-->
+	<!--<s:Image id="cThreeZergUpgradeDamageMeeleImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageThree"/>-->
+	<!--<s:Image id="cOneZergUpgradeDamageRangedImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageOne"/>-->
+	<!--<s:Image id="cTwoZergUpgradeDamageRangedImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageTwo"/>-->
+	<!--<s:Image id="cThreeZergUpgradeDamageRangedImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageThree"/>-->
+	<!--<s:Image id="cOneZergUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorOne"/>-->
+	<!--<s:Image id="cTwoZergUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorTwo"/>-->
+	<!--<s:Image id="cThreeZergUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorThree"/>-->
+	<!--<s:Image id="cOneZergAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageOne"/>-->
+	<!--<s:Image id="cTwoZergAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageTwo"/>-->
+	<!--<s:Image id="cThreeZergAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageThree"/>-->
+	<!--<s:Image id="cOneZergAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorOne"/>-->
+	<!--<s:Image id="cTwoZergAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorTwo"/>-->
+	<!--<s:Image id="cThreeZergAirUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorThree"/>-->
+
+	<!--<s:Image id="cOneTerranUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageOne"/>-->
+	<!--<s:Image id="cTwoTerranUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageTwo"/>-->
+	<!--<s:Image id="cThreeTerranUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageThree"/>-->
+	<!--<s:Image id="cOneTerranUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorOne"/>-->
+	<!--<s:Image id="cTwoTerranUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorTwo"/>-->
+	<!--<s:Image id="cThreeTerranUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorThree"/>-->
+	<!--<s:Image id="cOneTerranVechicleUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/VechicleDamageOne"/>-->
+	<!--<s:Image id="cTwoTerranVechicleUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/VechicleDamageTwo"/>-->
+	<!--<s:Image id="cThreeTerranVechicleUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/VechicleDamageThree"/>-->
+	<!--<s:Image id="cOneTerranAVUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AVArmorOne"/>-->
+	<!--<s:Image id="cTwoTerranAVUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AVArmorTwo"/>-->
+	<!--<s:Image id="cThreeTerranAVUpgradeArmorImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AVArmorThree"/>-->
+	<!--<s:Image id="cOneTerranAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AirDamageOne"/>-->
+	<!--<s:Image id="cTwoTerranAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AirDamageTwo"/>-->
+	<!--<s:Image id="cThreeTerranAirUpgradeDamageImage" source="C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/AirDamageThree"/>-->
+
+</s:Group>

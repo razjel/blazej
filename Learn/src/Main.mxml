@@ -1,18 +1,38 @@
 <?xml version="1.0"?>
 <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
-					   creationComplete="_onCreated()">
+					   xmlns:logic="logic.*" xmlns:views="overwatch.views.*" xmlns:displaylist="examples.displayList.*"
+					   creationComplete="_onCreated()" preinitialize="onPreinit()">
 	<fx:Script><![CDATA[
+		import com.utils.CcAdvanced;
+
+		import examples.TimeoutExample;
+
+		import logic.InitDataAction;
+
 		import logic.PureTest;
+
+		private function onPreinit():void
+		{
+			InitDataAction.init()
+		}
 
 		protected function _onCreated():void
 		{
+			CcAdvanced.init(this);
+			_executePureTest();
 		}
 
 		protected function _executePureTest():void
 		{
-			var pureTest:PureTest = new PureTest();
-			pureTest.execute();
+//			var test:TimeoutExample = new TimeoutExample();
+//			test.execute();
 		}
 		]]></fx:Script>
-	<s:Button click="_executePureTest()" label="execute"/>
+
+	<views:UpgradeView width="100%" height="100%"/>
+	<!--<views:BattleGround width="100%" height="100%"/>-->
+	<!--<displaylist:DisplayList width="100%" height="100%" />-->
+	<!--<displaylist:DisplayListManipulation width="100%" height="100%" />-->
+
+
 </s:WindowedApplication>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+  Created by Błażej on 11.02.2017.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script><![CDATA[
+		import spark.components.Alert;
+		import spark.components.Label;
+		import spark.components.Label;
+
+		public function testAdd():void
+		{
+			var people:Array = ['Asia', 'Ania', 'Rafal', 'Michal', 'Szczepan'];
+			for (var i:int = 0; i < people.length; i++)
+			{
+				var label:Label = new Label();
+				label.text = people[i];
+				cGroup.addElementAt(label, Math.min(cGroup.numElements, 1));
+			}
+		}
+
+		public function testRemove():void
+		{
+			if (cGroup.numElements > 2)
+				cGroup.removeElementAt(1);
+		}
+
+		public function testChange():void
+		{
+			var label:Label = cGroup.getElementAt(2) as Label;
+			label.text += " choose one";
+		}
+
+		public function testSingleParent():void
+		{
+			cGroup.addElement(cLabel);
+		}
+
+		private function testChangeCheckBox(event:Event):void
+		{
+			cImage.visible = (event.currentTarget as CheckBox).selected;
+		}
+
+		public function addListener():void
+		{
+			cCheckBox.addEventListener(Event.CHANGE, testChangeCheckBox);
+			cCheckBox.removeEventListener(Event.CHANGE, testChangeCheckBox);
+
+		}
+		]]></fx:Script>
+
+	<s:VGroup>
+		<s:HGroup>
+			<s:Button label="add" click="testAdd()"/>
+			<s:Button label="remove" click="testRemove()"/>
+			<s:Button label="change" click="testChange()"/>
+			<s:Button label="single parent" click="testSingleParent()"/>
+			<s:Label id="cLabel" text="test"/>
+			<s:CheckBox id="cCheckBox" label="check box" selected="true" change="testChangeCheckBox(event)"/>
+		</s:HGroup>
+		<s:Image id="cImage" width="200" height="200" click="Alert.show('test')"
+				 source="C:/Users/Błażej/Desktop/Programowanie i nauka/Przechwytywanie.png"/>
+		<s:VGroup id="cGroup">
+		</s:VGroup>
+	</s:VGroup>
+</s:Group>

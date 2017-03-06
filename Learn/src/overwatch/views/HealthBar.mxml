@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+  Created by Szczepan Czaicki, s.czaicki@getprintbox.com
+  Date: 2016-09-17
+ 
+  Copyright (c) 2013, Printbox www.getprintbox.com
+  All rights reserved.
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script><![CDATA[
+		import model.Model;
+
+		[Bindable]
+		public var hero:HeroStats;
+
+		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+		{
+			super.updateDisplayList(unscaledWidth, unscaledHeight);
+			var healthRect:int = Math.round(hero.maxHealthPoint / (hero.maxHealthPoint + hero.maxShield) * unscaledWidth);
+			var shieldRect:int = Math.round(hero.maxShield / (hero.maxHealthPoint + hero.maxShield) * unscaledWidth);
+			var healthPercentagePosition:int = Math.round(hero.healthPoint / hero.maxHealthPoint * healthRect);
+			var shieldPercentagePosition:int = Math.round(hero.shield / hero.maxShield * shieldRect);
+			cBar.graphics.clear();
+			cBar.graphics.beginFill(0xFF2222);
+			cBar.graphics.drawRect(0, 0, unscaledWidth, unscaledHeight);
+			cBar.graphics.beginFill(0x22FF22);
+			cBar.graphics.drawRect(0, 0, healthPercentagePosition, unscaledHeight);
+			if (hero.shield > 0)
+			{
+				cBar.graphics.beginFill(0x0000ff);
+				cBar.graphics.drawRect(healthRect, 0, shieldPercentagePosition, unscaledHeight);
+			}
+		}
+		]]></fx:Script>
+
+	<s:VGroup>
+		<s:Label id="cName" text="{hero.heroName}" />
+		<s:Group id="cBar" width="100%" height="100%"/>
+	</s:VGroup>
+</s:Group>
