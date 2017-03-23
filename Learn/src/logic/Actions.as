@@ -14,8 +14,8 @@ import model.Model;
 import model.Model;
 
 import model.Model;
-import model.UnitType;
-import model.UnitType;
+import model.consts.UnitType;
+import model.consts.UnitType;
 
 public class Actions
 {

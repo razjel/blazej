@@ -1,7 +1,7 @@
 /**
  * Created by Błażej on 19.01.2017.
  */
-package model
+package model.consts
 {
 public class UnitType
 {

@@ -16,7 +16,8 @@
 		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
 		{
 			super.updateDisplayList(unscaledWidth, unscaledHeight);
-			var healthRect:int = Math.round(hero.maxHealthPoint / (hero.maxHealthPoint + hero.maxShield) * unscaledWidth);
+			var healthRect:int = Math.round(
+				hero.maxHealthPoint / (hero.maxHealthPoint + hero.maxShield) * unscaledWidth);
 			var shieldRect:int = Math.round(hero.maxShield / (hero.maxHealthPoint + hero.maxShield) * unscaledWidth);
 			var healthPercentagePosition:int = Math.round(hero.healthPoint / hero.maxHealthPoint * healthRect);
 			var shieldPercentagePosition:int = Math.round(hero.shield / hero.maxShield * shieldRect);

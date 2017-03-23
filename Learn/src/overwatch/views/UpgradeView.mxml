@@ -8,69 +8,68 @@
 
 	<fx:Script><![CDATA[
 		import model.Model;
-
 		public function onInit():void
 		{
 			cHeroStatsView.hero = Model.hero1;
-			if (cHeroStatsView.hero.race=="Protoss")
+			if (cHeroStatsView.hero.race == "Protoss")
 			{
-				cHeroStatsView.ThirdUpgrade.source =
-					"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldZero.png"
-				if (cHeroStatsView.hero.space=="Ground")
+				cHeroStatsView.ThirdUpgrade.source = "C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Shield0.png";
+
+				if (cHeroStatsView.hero.space == "Ground")
 				{
 					cHeroStatsView.FirstUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Damage0.png"
 					cHeroStatsView.SecondUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Armor0.png"
 				}
 				else
 				{
 					cHeroStatsView.FirstUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAir0.png"
 					cHeroStatsView.SecondUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAir0.png"
 				}
 			}
-			else if (cHeroStatsView.hero.race=="Zerg")
+			else if (cHeroStatsView.hero.race == "Zerg")
 			{
-				if (cHeroStatsView.hero.space=="Ground")
+				if (cHeroStatsView.hero.space == "Ground")
 				{
 					cHeroStatsView.SecondUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorZero.png"
-					if (cHeroStatsView.hero.range==0)
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/Armor0.png"
+					if (cHeroStatsView.hero.range == 0)
 					{
 						cHeroStatsView.FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageZero.png"
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamage0.png"
 					}
 					else
 					{
 						cHeroStatsView.FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageZero.png"
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamage0.png"
 					}
 				}
 			}
 			else
 			{
-				if (cHeroStatsView.hero.space=="Infantry")
+				if (cHeroStatsView.hero.space == "Infantry")
 				{
 					cHeroStatsView.FirstUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/Damage0.png"
 					cHeroStatsView.SecondUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/Armor0.png"
 				}
 				else
 				{
 					cHeroStatsView.SecondUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AVArmorZero.png"
-					if (cHeroStatsView.hero.space=="Vechicle")
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AVArmor0.png"
+					if (cHeroStatsView.hero.space == "Vechicle")
 					{
 						cHeroStatsView.FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageZero.png"
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamage0.png"
 					}
 					else
 					{
 						cHeroStatsView.FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageZero.png"
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamage0.png"
 					}
 				}
 			}

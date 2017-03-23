@@ -6,7 +6,7 @@ package logic
 import flash.utils.Dictionary;
 
 import model.Model;
-import model.UnitType;
+import model.consts.UnitType;
 
 public class InitDataAction
 {
@@ -109,7 +109,8 @@ public class InitDataAction
 		marauder.imageUrl = "C:/Users/Błażej/Desktop/Programowanie i nauka/Marauder.png";
 		
 		Model.hero1 = stalker;
-		Model.hero2 = roach;
+		Model.hero2 = roach
+		;
 
 	}
 }

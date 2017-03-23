@@ -12,7 +12,32 @@
 			<s:Image id="SecondUpgrade"  click="secondUpgrade()"/>
 			<s:Image id="ThirdUpgrade"  click="thirdUpgrade()"/>
 		</s:HGroup>
-		<s:Button id="NextSceneButton" label="Fight"/>
+		<s:VGroup>
+			<s:HGroup width="50" height="20" >
+				<s:Label id="HealthPoint"  text="Health Point"/>
+				<s:TextInput id="HealthPointValue" editable="true" restrict="1,2,3,4,5,6,7,8,9,0" text="80"/>
+			</s:HGroup>
+			<s:HGroup width="50" height="20">
+				<s:Label id="ShieldPoint"  text="Shield Point"/>
+				<s:TextInput id="ShieldPointValue" editable="true" restrict="1,2,3,4,5,6,7,8,9,0" text="80"/>
+			</s:HGroup>
+			<s:HGroup width="50" height="20">
+				<s:Label id="Type"  text="Type"/>
+				<s:Label id="TypeValue"  text="Armored Mechanic"/>
+			</s:HGroup>
+			<s:HGroup width="50" height="20">
+				<s:Label id="Mineral"  text="Mineral"/>
+				<s:Label id="MineralValue"  text="125"/>
+			</s:HGroup>
+			<s:HGroup width="50" height="20">
+				<s:Label id="Vespan"  text="Vespan"/>
+				<s:Label id="VespanValue"  text="50"/>
+			</s:HGroup>
+			<s:HGroup width="50" height="20">
+				<s:Label id="Supply"  text="Supply"/>
+				<s:Label id="SupplyValue"  text="2"/>
+			</s:HGroup>
+		</s:VGroup>
 	</s:VGroup>
 
 
@@ -35,30 +60,8 @@
 						hero.damageUpgradeLevel += 1;
 					}
 					trace(hero.damageUpgradeLevel);
-
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageThree.png"
-					}
+					FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Damage"+hero.damageUpgradeLevel+".png"
 				}
 				else
 				{
@@ -72,29 +75,8 @@
 					}
 					trace(hero.damageUpgradeLevel);
 
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAirThree.png"
-					}
+					FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/DamageAir"+hero.damageUpgradeLevel+".png"
 				}
 			}
 			else if (hero.race == "Zerg")
@@ -113,29 +95,8 @@
 						}
 						trace(hero.damageMeleeUpgradeLevel);
 
-						if (hero.damageMeleeUpgradeLevel == 0)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageZero.png"
-						}
-
-						if (hero.damageMeleeUpgradeLevel == 1)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageOne.png"
-						}
-
-						if (hero.damageMeleeUpgradeLevel == 2)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageTwo.png"
-						}
-
-						if (hero.damageMeleeUpgradeLevel == 3)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamageThree.png"
-						}
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/MeleeDamage"+hero.damageMeleeUpgradeLevel+".png"
 					}
 					else
 					{
@@ -149,29 +110,8 @@
 						}
 						trace(hero.damageUpgradeLevel);
 
-						if (hero.damageUpgradeLevel == 0)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageZero.png"
-						}
-
-						if (hero.damageUpgradeLevel == 1)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageOne.png"
-						}
-
-						if (hero.damageUpgradeLevel == 2)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageTwo.png"
-						}
-
-						if (hero.damageUpgradeLevel == 3)
-						{
-							FirstUpgrade.source =
-								"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamageThree.png"
-						}
+						FirstUpgrade.source =
+							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/RangedDamage"+hero.damageUpgradeLevel+".png"
 					}
 				}
 				else
@@ -186,29 +126,8 @@
 					}
 					trace(hero.damageUpgradeLevel);
 
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamageThree.png"
-					}
+					FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirDamage"+hero.damageUpgradeLevel+".png"
 				}
 			}
 			else
@@ -225,29 +144,8 @@
 					}
 					trace(hero.damageUpgradeLevel);
 
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/DamageThree.png"
-					}
+					FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/Damage"+hero.damageUpgradeLevel+".png"
 				}
 				else if (hero.space == "Vechicle")
 				{
@@ -261,29 +159,8 @@
 					}
 					trace(hero.damageUpgradeLevel);
 
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamageThree.png"
-					}
+					FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/VechicleDamage"+hero.damageUpgradeLevel+".png"
 				}
 				else
 				{
@@ -297,29 +174,8 @@
 					}
 					trace(hero.damageUpgradeLevel);
 
-					if (hero.damageUpgradeLevel == 0)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageZero.png"
-					}
-
-					if (hero.damageUpgradeLevel == 1)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageOne.png"
-					}
-
-					if (hero.damageUpgradeLevel == 2)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageTwo.png"
-					}
-
-					if (hero.damageUpgradeLevel == 3)
-					{
-						FirstUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamageThree.png"
-					}
+					FirstUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AirDamage"+hero.damageUpgradeLevel+".png"
 				}
 			}
 		}
@@ -340,29 +196,8 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorZero.png"
-					}
-
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorThree.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Armor"+hero.armorUpgradeLevel+".png"
 				}
 				else
 				{
@@ -376,29 +211,8 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirZero.png"
-					}
-
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAirThree.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ArmorAir"+hero.armorUpgradeLevel+".png"
 				}
 			}
 			else if (hero.race == "Zerg")
@@ -415,29 +229,8 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorZero.png"
-					}
-
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/ArmorThree.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/Armor"+hero.armorUpgradeLevel+".png"
 				}
 				else
 				{
@@ -451,29 +244,8 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorZero.png"
-					}
-
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmorThree.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeZerg/AirArmor"+hero.armorUpgradeLevel+".png"
 				}
 			}
 			else
@@ -490,29 +262,9 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/Armor"+hero.armorUpgradeLevel+".png"
 
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorThree.png"
-					}
 				}
 				else
 				{
@@ -526,29 +278,8 @@
 					}
 					trace(hero.armorUpgradeLevel);
 
-					if (hero.armorUpgradeLevel == 0)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorZero.png"
-					}
-
-					if (hero.armorUpgradeLevel == 1)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorOne.png"
-					}
-
-					if (hero.armorUpgradeLevel == 2)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorTwo.png"
-					}
-
-					if (hero.armorUpgradeLevel == 3)
-					{
-						SecondUpgrade.source =
-							"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/ArmorThree.png"
-					}
+					SecondUpgrade.source =
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeTerran/AVArmor"+hero.armorUpgradeLevel+".png"
 				}
 			}
 		}
@@ -567,30 +298,11 @@
 				}
 				trace(hero.shieldUpgradeLevel);
 
-				if (hero.shieldUpgradeLevel == 0)
-				{
 					ThirdUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldZero.png"
-				}
-
-				if (hero.shieldUpgradeLevel == 1)
-				{
-					ThirdUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldOne.png"
-				}
-
-				if (hero.shieldUpgradeLevel == 2)
-				{
-					ThirdUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldTwo.png"
-				}
-
-				if (hero.shieldUpgradeLevel == 3)
-				{
-					ThirdUpgrade.source =
-						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/ShieldThree.png"
-				}
+						"C:/Users/Błażej/Desktop/Programowanie i nauka/UpgradeProtoss/Shield"+hero.shieldUpgradeLevel+".png"
 			}
+
+
 		}
 		]]></fx:Script>
 </s:Group>
