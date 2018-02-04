@@ -5,6 +5,8 @@
 	<fx:Script><![CDATA[
 		import com.utils.CcAdvanced;
 
+		import examples.TimeoutExample;
+
 		import logic.PureTest;
 
 		protected function _onCreated():void
@@ -15,11 +17,9 @@
 
 		protected function _executePureTest():void
 		{
-			var pureTest:PureTest = new PureTest();
-			pureTest.execute();
+			var test:TimeoutExample = new TimeoutExample();
+			test.execute();
 		}
-
-
 		]]></fx:Script>
 
 

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   creationComplete="_onCreated()">
+	<s:Group id="menuGroup" visible="{Variables.visibleMenu}" width="100%" height="100%"/>
+	<s:Group id="exerciseGroup" visible="{!Variables.visibleMenu}" width="100%" height="100%"/>
+	<s:Button id="startButton" bottom="0" right="0" label="start" click="startProgram()"
+			  visible="{Variables.visibleMenu}"/>
+	<s:Button id="stopButton" bottom="0" right="0" label="stop" click="stopProgram()"
+			  visible="{!Variables.visibleMenu}"/>
+	<s:Button id="saveButton" bottom="25" right="0" label="save" click="writeToFile()"
+			  visible="{Variables.visibleMenu}"/>
+	<s:HGroup id="partsHGroup" bottom="0" x="200" width="390" height="25" gap="1">
+		<s:Button id="firstPartButton" width="90" height="25" click="changePart(0)"
+				  visible="{Variables.visibleMenu}"/>
+		<s:Button id="secondPartButton" width="90" height="25" click="changePart(1)"
+				  visible="{Variables.visibleMenu}"/>
+		<s:Button id="thirdPartButton" width="90" height="25" click="changePart(2)"
+				  visible="{Variables.visibleMenu}"/>
+		<s:Button id="forthPartButton" width="90" height="25" click="changePart(3)"
+				  visible="{Variables.visibleMenu}"/>
+	</s:HGroup>
+	<fx:Script><![CDATA[
+		import com.utils.CcAdvanced;
+
+		public function _onCreated()
+		{
+			CcAdvanced.init(this);
+
+			var file:File = new File("B:/Exercises/partName.txt");
+			var stream:FileStream = new FileStream();
+			stream.open(file, FileMode.READ);
+			var setText:String = stream.readUTFBytes(stream.bytesAvailable);
+			setText = setText.replace(/\r/g, "");
+			Variables.partName = setText.split('\n');
+			firstPartButton.label = Variables.partName[0];
+			secondPartButton.label = Variables.partName[1];
+			thirdPartButton.label = Variables.partName[2];
+			forthPartButton.label = Variables.partName[3];
+			readFromFile("B:/Exercises/" + Variables.partName[Variables.nowOpenPart] + ".txt");
+			Variables.menuView = new Menu();
+			menuGroup.addElement(Variables.menuView);
+			Variables.menuView.refreshView();
+		}
+
+		public function changePart(nowOpenPart:Number)
+		{
+			var amount:int = Variables.exercises.length;
+			for (var i:int = 0; i < amount; i++)
+			{
+				Variables.exercises.pop();
+			}
+			Variables.nowOpenPart = nowOpenPart;
+			Variables.menuView.removeAllElements();
+			readFromFile("B:/Exercises/" + Variables.partName[Variables.nowOpenPart] + ".txt");
+			Variables.menuView = new Menu();
+			menuGroup.addElement(Variables.menuView);
+			Variables.menuView.refreshView();
+		}
+
+		public function startProgram()
+		{
+		/*	writeToFile();*/
+			if (Variables.exercises.length > 0)
+			{
+				exerciseGroup.addElement(new Logic());
+				Variables.visibleMenu = false;
+				Variables.startTime = getTimer();
+				Variables.displayNextExercise = Variables.exercises[Variables.repeatingNumber].name;
+				for (var i:int = 0; i < Variables.exercises.length; i++)
+				{
+					var data:ExerciseData = new ExerciseData();
+					var element:ExerciseView = new ExerciseView;
+					data.name = element.exerciseNameTextArea.text;
+					data.duration = parseInt(element.durationTextArea.text);
+					Variables.exerciseName.push(data.name);
+					Variables.exerciseDuration.push(data.duration);
+					element.durationTextArea.text = data.duration.toString();
+				}
+			}
+		}
+
+		public function writeToFile():void
+		{
+			try
+			{
+				var file:File = new File("B:/Exercises/");
+				var newName:String = Variables.partName[Variables.nowOpenPart] + ".txt";
+				file = file.resolvePath(newName);
+				var stream:FileStream = new FileStream();
+				stream.open(file, FileMode.WRITE);
+				var i:Number = 0;
+				for each (var exercise:ExerciseData in Variables.exercises)
+				{
+					stream.writeUTFBytes(exercise.name + '\n' + exercise.duration);
+					i = i + 1;
+					if (i < Variables.exercises.length)
+						stream.writeUTFBytes('\n');
+				}
+				var menu:Menu = new Menu();
+				stream.writeUTFBytes('\n' + menu.breakDurationTextArea + '\n' + Variables.breakDuration + '\n'
+									 + menu.breakDurationTextArea + '\n' + menu.repeatNumberTextArea + '\n'
+									 + Variables.repeatNumber + '\n' + menu.repeatNumberTextArea + '\n'
+									 + menu.breakBetweenRepeatsDurationTextArea + '\n'
+									 + Variables.breakBetweenRepeatsDuration)
+			}
+			catch (error:Error)
+			{
+				trace("Failed to write file, error: " + error.getStackTrace());
+			}
+			finally
+			{
+				if (stream)
+					stream.close();
+			}
+		}
+
+		public function readFromFile(fullFilePath:String)
+		{
+			try
+			{
+				var file:File = new File(fullFilePath);
+				var stream:FileStream = new FileStream();
+				stream.open(file, FileMode.READ);
+				var setText:String = stream.readUTFBytes(stream.bytesAvailable);
+				setText = setText.replace(/\r/g, "");
+				var tabBreak:Array = setText.split(/\nBreak\n/g);
+				if (tabBreak[1] == undefined)
+				{}
+				else
+				{
+					Variables.breakDuration = tabBreak[1];
+				}
+				var setTextExercises:String = tabBreak[0];
+				var tabExercises:Array = setTextExercises.split('\n');
+				for (var i:int = 0; i < tabExercises.length; i = i + 2)
+				{
+					var exercise:ExerciseData = new ExerciseData();
+					exercise.name = tabExercises[i];
+					exercise.duration = parseInt(tabExercises[i + 1]);
+					Variables.exercises.push(exercise);
+				}
+				var tabRepeat = setText.split(/Repeat\n/g);
+				Variables.repeatNumber = tabRepeat[1];
+				tabRepeat = tabRepeat[2].split("Break Between Repeats");
+				Variables.breakBetweenRepeatsDuration = tabRepeat[1];
+			}
+			catch (error:Error)
+			{
+				trace("Failed to read file, error: " + error.getStackTrace());
+			}
+			finally
+			{
+				if (stream)
+					stream.close();
+			}
+			return "";
+		}
+
+		public function stopProgram()
+		{
+			exerciseGroup.removeAllElements();
+			Variables.visibleMenu = true;
+		}
+		]]></fx:Script>
+</s:WindowedApplication>

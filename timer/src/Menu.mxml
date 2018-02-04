@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+  Created by Błażej on 02.09.2017.
+-->
+<s:Group width="100%" height="100%" xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark">
+
+		<s:VGroup id="exerciseListVGroup"/>
+
+	<s:HGroup bottom="0" left="0" gap="1">
+		<s:Button click="addExercise()" label="+" width="30" height="30"/>
+		<s:Button click="removeExercise()" label="-" width="30" height="30"/>
+	</s:HGroup>
+	<s:VGroup x="850" y="10">
+		<s:HGroup>
+			<s:TextArea id="breakDurationTextArea" borderVisible="false" editable="false" width="175" height="20" text="Break"/>
+			<s:TextInput id="breakDurationTextInput" text="{Variables.breakDuration}" change="changeBreakDuration()" width="30" height="20"/>
+		</s:HGroup>
+		<s:HGroup>
+			<s:TextArea id="repeatNumberTextArea" borderVisible="false" editable="false" width="175" height="20" text="Repeat"/>
+			<s:TextInput id="repeatNumberTextInput" text="{Variables.repeatNumber}" change="changeRepeatNumber()" width="30" height="20"/>
+		</s:HGroup>
+		<s:HGroup>
+			<s:TextArea id="breakBetweenRepeatsDurationTextArea" borderVisible="false" editable="false" width="175" height="20" text="Break between repeats"/>
+			<s:TextInput id="breakBetweenRepeatsDurationTextInput" text="{Variables.breakBetweenRepeatsDuration}" change="changebreakBetweenRepeatsDuration()" width="30" height="20"/>
+		</s:HGroup>
+	</s:VGroup>
+	<fx:Script><![CDATA[
+		public function changeBreakDuration()
+		{
+			Variables.breakDuration = parseInt(breakDurationTextInput.text);
+		}
+
+		public function changeRepeatNumber()
+		{
+			Variables.repeatNumber = parseInt(repeatNumberTextInput.text);
+		}
+
+		public function changebreakBetweenRepeatsDuration()
+		{
+			Variables.breakBetweenRepeatsDuration = parseInt(breakBetweenRepeatsDurationTextInput.text);
+		}
+
+		public function addExercise()
+		{
+			for (var i = 0; i < 30; i++)
+				Variables.exercises.push(new ExerciseData());
+			refreshView();
+		}
+
+		public function removeExercise()
+		{
+			var amountOfExercises:Number = Variables.exercises.length - 1;
+			if (amountOfExercises >= 0)
+			{
+				Variables.exercises.pop();
+				refreshView();
+			}
+		}
+
+		public function refreshView():void
+		{
+			exerciseListVGroup.removeAllElements();
+			var exercises = Variables.exercises;
+			for (var i:int; i < exercises.length; i++)
+			{
+				var exercise = exercises[i];
+				var view:ExerciseView = new ExerciseView();
+				view.exercise = exercise;
+				exerciseListVGroup.addElement(view);
+			}
+		}
+		]]></fx:Script>
+</s:Group>
