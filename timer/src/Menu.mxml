@@ -4,8 +4,9 @@
 -->
 <s:Group width="100%" height="100%" xmlns:fx="http://ns.adobe.com/mxml/2009"
 		 xmlns:s="library://ns.adobe.com/flex/spark">
-
-		<s:VGroup id="exerciseListVGroup"/>
+	<s:Scroller height="100%">
+		<s:VGroup id="exerciseListVGroup" clipAndEnableScrolling="true" height="100%"/>
+	</s:Scroller>
 
 	<s:HGroup bottom="0" left="0" gap="1">
 		<s:Button click="addExercise()" label="+" width="30" height="30"/>
